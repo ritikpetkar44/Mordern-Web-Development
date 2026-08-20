@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>YASH Dhaba - Restaurant Menu</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="bg-stone-50 text-stone-800">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+
+      <a href="#" class="text-2xl font-bold tracking-wide text-amber-700">
+        YASH DA DHABA
+      </a>
+
+      <nav class="hidden gap-8 text-sm font-medium md:flex">
+        <a href="#starters" class="transition hover:text-amber-600">Starters</a>
+        <a href="#mains" class="transition hover:text-amber-600">Main Course</a>
+        <a href="#desserts" class="transition hover:text-amber-600">Desserts</a>
+        <a href="#drinks" class="transition hover:text-amber-600">Drinks</a>
+      </nav>
+
+      <a
+        href="#contact"
+        class="rounded-full bg-amber-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-amber-700"
+      >
+        Reserve
+      </a>
+    </div>
+  </header>
+
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-stone-900">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=80')] bg-cover bg-center opacity-40"></div>
+
+    <div class="relative mx-auto max-w-7xl px-6 py-28 text-center text-white md:py-36">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-amber-400">
+        Welcome to La Tavola
+      </p>
+
+      <h1 class="mx-auto max-w-3xl text-5xl font-bold leading-tight md:text-7xl">
+        Good food,
+        <span class="text-amber-400">great moments.</span>
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-stone-200 md:text-lg">
+        Fresh ingredients, traditional recipes and a modern touch.
+        Explore our carefully crafted menu.
+      </p>
+
+      <a
+        href="#menu"
+        class="mt-8 inline-block rounded-full bg-amber-500 px-7 py-3 font-semibold text-white transition hover:bg-amber-600"
+      >
+        Explore Menu
+      </a>
+    </div>
+  </section>
+
+
+  <!-- Menu -->
+  <main id="menu" class="mx-auto max-w-7xl px-6 py-20">
+
+    <!-- Section Heading -->
+    <div class="mx-auto mb-16 max-w-2xl text-center">
+      <p class="text-sm font-bold uppercase tracking-[0.25em] text-amber-600">
+        Our Menu
+      </p>
+
+      <h2 class="mt-3 text-4xl font-bold text-stone-900 md:text-5xl">
+        Made with passion
+      </h2>
+
+      <p class="mt-4 text-stone-500">
+        Every dish is prepared with fresh, seasonal ingredients and lots of love.
+      </p>
+    </div>
+
+
+    <!-- Starters -->
+    <section id="starters" class="mb-20">
+      <div class="mb-8 flex items-end justify-between border-b border-stone-200 pb-4">
+        <div>
+          <p class="text-sm font-medium text-amber-600">01</p>
+          <h3 class="mt-1 text-3xl font-bold text-stone-900">Starters</h3>
+        </div>
+
+        <span class="hidden text-sm text-stone-400 sm:block">
+          Begin your experience
+        </span>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+
+        <!-- Item -->
+        <article class="group rounded-2xl bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <div class="flex gap-5">
+            <img
+              src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&w=300&q=80"
+              alt="Bruschetta"
+              class="h-24 w-24 rounded-xl object-cover"
+            />
+
+            <div class="flex-1">
+              <div class="flex justify-between gap-4">
+                <h4 class="font-bold text-stone-900">Classic Bruschetta</h4>
+                <span class="font-bold text-amber-600">$9</span>
+              </div>
+
+              <p class="mt-2 text-sm leading-6 text-stone-500">
+                Toasted artisan bread, tomatoes, basil, garlic and extra virgin olive oil.
+              </p>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="group rounded-2xl bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <div class="flex gap-5">
+            <img
+              src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=300&q=80"
+              alt="Soup"
+              class="h-24 w-24 rounded-xl object-cover"
+            />
+
+            <div class="flex-1">
+              <div class="flex justify-between gap-4">
+                <h4 class="font-bold text-stone-900">Creamy Tomato Soup</h4>
+                <span class="font-bold text-amber-600">$8</span>
+              </div>
+
+              <p class="mt-2 text-sm leading-6 text-stone-500">
+                Slow-roasted tomatoes, fresh herbs and a touch of cream.
+              </p>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="group rounded-2xl bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <div class="flex gap-5">
+            <img
+              src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=300&q=80"
+              alt="Chicken wings"
+              class="h-24 w-24 rounded-xl object-cover"
+            />
+
+            <div class="flex-1">
+              <div class="flex justify-between gap-4">
+                <h4 class="font-bold text-stone-900">Herb Chicken Bites</h4>
+                <span class="font-bold text-amber-600">$11</span>
+              </div>
+
+              <p class="mt-2 text-sm leading-6 text-stone-500">
+                Crispy chicken pieces with rosemary, garlic and house seasoning.
+              </p>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="group rounded-2xl bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <div class="flex gap-5">
+            <img
+              src="https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?auto=format&fit=crop&w=300&q=80"
+              alt="Salad"
+              class="h-24 w-24 rounded-xl object-cover"
+            />
+
+            <div class="flex-1">
+              <div class="flex justify-between gap-4">
+                <h4 class="font-bold text-stone-900">Garden Salad</h4>
+                <span class="font-bold text-amber-600">$10</span>
+              </div>
+
+              <p class="mt-2 text-sm leading-6 text-stone-500">
+                Crisp greens, cucumber, cherry tomatoes, olives and lemon dressing.
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- Main Course -->
+    <section id="mains" class="mb-20">
+      <div class="mb-8 flex items-end justify-between border-b border-stone-200 pb-4">
+        <div>
+          <p class="text-sm font-medium text-amber-600">02</p>
+          <h3 class="mt-1 text-3xl font-bold text-stone-900">Main Course</h3>
+        </div>
+
+        <span class="hidden text-sm text-stone-400 sm:block">
+          Our signature dishes
+        </span>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+
+        <article class="overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <img
+            src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+            alt="Pasta"
+            class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+
+          <div class="p-6">
+            <div class="flex justify-between gap-4">
+              <h4 class="text-xl font-bold text-stone-900">
+                Truffle Mushroom Pasta
+              </h4>
+
+              <span class="font-bold text-amber-600">$18</span>
+            </div>
+
+            <p class="mt-3 text-sm leading-6 text-stone-500">
+              Handmade pasta with wild mushrooms, parmesan, herbs and truffle cream.
+            </p>
+
+            <span class="mt-4 inline-block rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
+              Chef's Choice
+            </span>
+          </div>
+        </article>
+
+
+        <article class="overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <img
+            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+            alt="Steak"
+            class="h-56 w-full object-cover"
+          />
+
+          <div class="p-6">
+            <div class="flex justify-between gap-4">
+              <h4 class="text-xl font-bold text-stone-900">
+                Grilled Herb Steak
+              </h4>
+
+              <span class="font-bold text-amber-600">$26</span>
+            </div>
+
+            <p class="mt-3 text-sm leading-6 text-stone-500">
+              Grilled steak served with roasted vegetables, herbs and house sauce.
+            </p>
+          </div>
+        </article>
+
+
+        <article class="overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <img
+            src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80"
+            alt="Rice bowl"
+            class="h-56 w-full object-cover"
+          />
+
+          <div class="p-6">
+            <div class="flex justify-between gap-4">
+              <h4 class="text-xl font-bold text-stone-900">
+                Mediterranean Rice Bowl
+              </h4>
+
+              <span class="font-bold text-amber-600">$15</span>
+            </div>
+
+            <p class="mt-3 text-sm leading-6 text-stone-500">
+              Fragrant rice, roasted vegetables, chickpeas, herbs and creamy tahini.
+            </p>
+          </div>
+        </article>
+
+
+        <article class="overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <img
+            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+            alt="Pasta with tomato sauce"
+            class="h-56 w-full object-cover"
+          />
+
+          <div class="p-6">
+            <div class="flex justify-between gap-4">
+              <h4 class="text-xl font-bold text-stone-900">
+                Spicy Arrabbiata
+              </h4>
+
+              <span class="font-bold text-amber-600">$14</span>
+            </div>
+
+            <p class="mt-3 text-sm leading-6 text-stone-500">
+              Italian pasta, spicy tomato sauce, garlic, basil and parmesan.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- Desserts -->
+    <section id="desserts" class="mb-20">
+      <div class="mb-8 border-b border-stone-200 pb-4">
+        <p class="text-sm font-medium text-amber-600">03</p>
+        <h3 class="mt-1 text-3xl font-bold text-stone-900">Desserts</h3>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <article class="rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <div class="mb-5 text-4xl">🍰</div>
+
+          <div class="flex justify-between">
+            <h4 class="font-bold">Classic Tiramisu</h4>
+            <span class="font-bold text-amber-600">$8</span>
+          </div>
+
+          <p class="mt-3 text-sm leading-6 text-stone-500">
+            Espresso-soaked sponge, mascarpone cream and cocoa.
+          </p>
+        </article>
+
+
+        <article class="rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <div class="mb-5 text-4xl">🍫</div>
+
+          <div class="flex justify-between">
+            <h4 class="font-bold">Chocolate Cake</h4>
+            <span class="font-bold text-amber-600">$9</span>
+          </div>
+
+          <p class="mt-3 text-sm leading-6 text-stone-500">
+            Rich chocolate cake served with vanilla cream.
+          </p>
+        </article>
+
+
+        <article class="rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <div class="mb-5 text-4xl">🍨</div>
+
+          <div class="flex justify-between">
+            <h4 class="font-bold">Vanilla Gelato</h4>
+            <span class="font-bold text-amber-600">$7</span>
+          </div>
+
+          <p class="mt-3 text-sm leading-6 text-stone-500">
+            Smooth Italian-style vanilla gelato with seasonal toppings.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- Drinks -->
+    <section id="drinks">
+      <div class="mb-8 border-b border-stone-200 pb-4">
+        <p class="text-sm font-medium text-amber-600">04</p>
+        <h3 class="mt-1 text-3xl font-bold text-stone-900">Drinks</h3>
+      </div>
+
+      <div class="grid gap-x-10 md:grid-cols-2">
+
+        <div class="border-b border-stone-200 py-5">
+          <div class="flex justify-between">
+            <h4 class="font-semibold">Fresh Lemonade</h4>
+            <span class="font-bold text-amber-600">$5</span>
+          </div>
+          <p class="mt-1 text-sm text-stone-500">Fresh lemon, mint and sparkling water.</p>
+        </div>
+
+        <div class="border-b border-stone-200 py-5">
+          <div class="flex justify-between">
+            <h4 class="font-semibold">Iced Coffee</h4>
+            <span class="font-bold text-amber-600">$6</span>
+          </div>
+          <p class="mt-1 text-sm text-stone-500">Cold brewed coffee with milk and ice.</p>
+        </div>
+
+        <div class="border-b border-stone-200 py-5">
+          <div class="flex justify-between">
+            <h4 class="font-semibold">Peach Iced Tea</h4>
+            <span class="font-bold text-amber-600">$5</span>
+          </div>
+          <p class="mt-1 text-sm text-stone-500">Black tea, peach and fresh citrus.</p>
+        </div>
+
+        <div class="border-b border-stone-200 py-5">
+          <div class="flex justify-between">
+            <h4 class="font-semibold">Sparkling Water</h4>
+            <span class="font-bold text-amber-600">$3</span>
+          </div>
+          <p class="mt-1 text-sm text-stone-500">Chilled sparkling mineral water.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Reservation CTA -->
+  <section id="contact" class="bg-amber-600">
+    <div class="mx-auto max-w-5xl px-6 py-16 text-center text-white">
+
+      <p class="text-sm font-semibold uppercase tracking-[0.25em] text-amber-100">
+        Visit Us
+      </p>
+
+      <h2 class="mt-3 text-4xl font-bold md:text-5xl">
+        Make your evening special
+      </h2>
+
+      <p class="mx-auto mt-4 max-w-xl text-amber-50">
+        Join us for delicious food, warm hospitality and unforgettable moments.
+      </p>
+
+      <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+        <a
+          href="tel:+1234567890"
+          class="rounded-full bg-white px-7 py-3 font-semibold text-amber-700 transition hover:bg-amber-50"
+        >
+          Call to Reserve
+        </a>
+
+        <a
+          href="mailto:hello@latavola.com"
+          class="rounded-full border border-white px-7 py-3 font-semibold text-white transition hover:bg-white/10"
+        >
+          Email Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-stone-950 text-stone-400">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-3">
+
+      <div>
+        <h3 class="text-xl font-bold text-white">La Tavola</h3>
+        <p class="mt-3 text-sm leading-6">
+          Fresh food, authentic flavors and memorable dining experiences.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white">Opening Hours</h4>
+
+        <div class="mt-3 space-y-2 text-sm">
+          <p>Monday – Friday: 11:00 AM – 10:00 PM</p>
+          <p>Saturday – Sunday: 10:00 AM – 11:00 PM</p>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white">Contact</h4>
+
+        <div class="mt-3 space-y-2 text-sm">
+          <p>123 Food Street, Downtown</p>
+          <p>+1 234 567 890</p>
+          <p>hello@latavola.com</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-t border-stone-800 py-5 text-center text-xs">
+      © 2026 La Tavola. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>;
