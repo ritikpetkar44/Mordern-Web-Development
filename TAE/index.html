@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen cursor-none scroll-smooth bg-[radial-gradient(circle_at_top_left,_rgba(251,113,133,0.18),_transparent_22%),radial-gradient(circle_at_bottom_right,_rgba(251,191,36,0.18),_transparent_22%),linear-gradient(135deg,_#fff7ed,_#fdf2f8_35%,_#f5f3ff_100%)] flex items-center justify-center p-4 sm:p-6 overflow-x-hidden">
+    <div id="cursor-ring" class="pointer-events-none fixed left-0 top-0 z-50 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border border-rose-300/70 bg-rose-200/15 shadow-[0_0_35px_rgba(251,113,133,0.18)] backdrop-blur-sm transition-transform duration-75 ease-out"></div>
+    <div id="cursor-dot" class="pointer-events-none fixed left-0 top-0 z-50 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose-400/80 shadow-[0_0_18px_rgba(251,113,133,0.65)] transition-transform duration-75 ease-out"></div>
+
+    <div class="relative w-full max-w-4xl">
+        <div class="absolute -top-8 -left-8 h-32 w-32 rounded-full bg-rose-200/60 blur-3xl animate-pulse"></div>
+        <div class="absolute -bottom-10 -right-8 h-36 w-36 rounded-full bg-amber-200/60 blur-3xl animate-pulse"></div>
+
+        <div class="relative overflow-hidden rounded-[32px] border border-white/70 bg-white/80 p-5 shadow-[0_30px_80px_rgba(244,114,182,0.12)] backdrop-blur-xl transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_35px_90px_rgba(168,85,247,0.14)] sm:p-8">
+            <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-rose-400 via-violet-400 to-amber-300"></div>
+
+            <div class="text-center">
+                <span class="mb-4 inline-block rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-[10px] font-bold tracking-[0.22em] text-rose-600 uppercase">Knowledge Check</span>
+                <h1 class="text-3xl font-black tracking-tight text-violet-900 sm:text-5xl">Multiple Choice Quiz</h1>
+                <p class="mt-3 text-sm text-slate-600 sm:text-base">Challenge yourself and test how much you know.</p>
+            </div>
+
+            <div id="quiz-container" class="mt-8 transition-all duration-500 ease-out">
+                <div class="mb-5 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+                    <span id="question-number" class="inline-flex items-center rounded-full border border-violet-100 bg-violet-50 px-4 py-2 text-sm font-bold text-violet-800">Question 1 of 10</span>
+                    <div class="flex items-center gap-2">
+                        <span id="timer" class="inline-flex items-center rounded-full border border-amber-100 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-700">Time: 00:00</span>
+                        <span id="score" class="inline-flex items-center rounded-full border border-emerald-100 bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-700">Score: 0</span>
+                    </div>
+                </div>
+
+                <div class="mb-6 h-3 w-full overflow-hidden rounded-full bg-slate-200">
+                    <div id="progress" class="h-full w-0 rounded-full bg-gradient-to-r from-rose-400 via-violet-500 to-amber-400 transition-all duration-500 ease-out"></div>
+                </div>
+
+                <h2 id="question" class="mb-5 text-xl font-bold leading-relaxed text-slate-800 sm:text-2xl">Question will appear here</h2>
+
+                <div id="options" class="grid gap-3"></div>
+
+                <button id="next-btn" type="button" class="mt-6 w-full rounded-2xl bg-gradient-to-r from-rose-500 via-violet-500 to-amber-400 px-5 py-3 text-base font-bold text-white shadow-[0_15px_30px_rgba(168,85,247,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(244,114,182,0.22)] focus:outline-none focus:ring-4 focus:ring-rose-200">Next Question</button>
+            </div>
+
+            <div id="result-container" class="hidden pt-6 text-center transition-all duration-500 ease-out">
+                <div class="mb-3 text-5xl animate-bounce">🏆</div>
+                <h2 class="text-3xl font-extrabold text-emerald-700 sm:text-4xl">Quiz Completed!</h2>
+
+                <div class="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                    <div class="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-5 py-3 shadow-sm">
+                        <span class="text-sm font-bold uppercase tracking-[0.2em] text-emerald-700">Score</span>
+                        <p id="final-score" class="ml-3 text-2xl font-black text-emerald-700"></p>
+                    </div>
+
+                    <div class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-5 py-3 shadow-sm">
+                        <span class="text-sm font-bold uppercase tracking-[0.2em] text-amber-700">Time</span>
+                        <p id="final-time" class="ml-3 text-2xl font-black text-amber-700"></p>
+                    </div>
+                </div>
+
+                <p id="percentage" class="mt-4 text-base font-semibold text-slate-500"></p>
+                <button id="restart-btn" type="button" class="mt-6 w-full rounded-2xl bg-gradient-to-r from-rose-500 via-violet-500 to-amber-400 px-5 py-3 text-base font-bold text-white shadow-[0_15px_30px_rgba(168,85,247,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(244,114,182,0.22)] focus:outline-none focus:ring-4 focus:ring-rose-200">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
