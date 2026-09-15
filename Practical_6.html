@@ -1,0 +1,63 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Calculator</title>
+</head>
+<body>
+
+<h2>Student Grade Calculator</h2>
+
+<!-- Student marks input -->
+Enter Marks 1: <input type="number" id="m1"><br><br>
+Enter Marks 2: <input type="number" id="m2"><br><br>
+Enter Marks 3: <input type="number" id="m3"><br><br>
+Enter Marks 4: <input type="number" id="m4"><br><br>
+Enter Marks 5: <input type="number" id="m5"><br><br>
+
+<button onclick="calculate()">Calculate Result</button>
+
+<p id="result"></p>
+
+<script>
+function calculate()
+{
+    // Take marks entered by user
+    let m1 = Number(document.getElementById("m1").value);
+    let m2 = Number(document.getElementById("m2").value);
+    let m3 = Number(document.getElementById("m3").value);
+    let m4 = Number(document.getElementById("m4").value);
+    let m5 = Number(document.getElementById("m5").value);
+
+    // Calculate total marks
+    let total = m1 + m2 + m3 + m4 + m5;
+
+    // Calculate percentage
+    let percentage = total / 5;
+
+    // Decide grade
+    let grade;
+
+    if (percentage >= 90)
+        grade = "A+";
+    else if (percentage >= 80)
+        grade = "A";
+    else if (percentage >= 70)
+        grade = "B";
+    else if (percentage >= 60)
+        grade = "C";
+    else if (percentage >= 50)
+        grade = "D";
+    else
+        grade = "F";
+
+    // Display result
+    document.getElementById("result").innerHTML =
+        "Total = " + total + "<br>" +
+        "Percentage = " + percentage + "%<br>" +
+        "Grade = " + grade;
+}
+</script>
+
+</body>
+</html>

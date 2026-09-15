@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>College FAQ</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="p-10 bg-cyan-200">
+
+<div class="max-w-xl mx-auto bg-orange-300 p-5 rounded shadow">
+<p><u>USN: CM25126</u></p>
+
+<h1 class="text-xl font-bold text-center">College Help Portal</h1>
+
+<button id="q" class="w-full p-3 bg-green-500 text-left mt-4">
+what is your college timing? <span id="i">+</span>
+</button>
+
+<div id="a" class="hidden p-3 bg-green-100">
+ college timing is from 10:00 AM to 5:30 PM.
+</div>
+</div>
+
+<script>
+q.onclick=()=>{a.classList.toggle("hidden");i.innerHTML=a.classList.contains("hidden")?"+":"-"}
+</script>
+
+</body>
+</html>
+
+
