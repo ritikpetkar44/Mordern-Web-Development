@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-linear-to-br from-slate-950 via-blue-950 to-cyan-900 px-4 py-10 text-slate-800">
+
+    <div class="mx-auto w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl shadow-blue-950/40">
+        <div class="bg-linear-to-r from-blue-600 to-cyan-500 px-6 py-7 text-center text-white">
+            <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 text-2xl backdrop-blur">+</div>
+            <h2 class="text-2xl font-bold tracking-tight">Student Registration</h2>
+            <p class="mt-1 text-sm text-blue-50">Create your student account</p>
+        </div>
+
+        <form id="registrationForm" class="space-y-4 p-6 sm:p-8">
+
+            <div>
+                <label for="name" class="mb-1.5 block text-sm font-semibold text-slate-700">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100">
+                <span id="nameError" class="mt-1 block text-xs text-red-500"></span>
+            </div>
+
+            <div>
+                <label for="email" class="mb-1.5 block text-sm font-semibold text-slate-700">Email</label>
+                <input type="email" id="email" placeholder="you@example.com"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100">
+                <span id="emailError" class="mt-1 block text-xs text-red-500"></span>
+            </div>
+
+            <div>
+                <label for="password" class="mb-1.5 block text-sm font-semibold text-slate-700">Password</label>
+                <input type="password" id="password" placeholder="Minimum 6 characters"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100">
+                <span id="passwordError" class="mt-1 block text-xs text-red-500"></span>
+            </div>
+
+            <div>
+                <label for="mobile" class="mb-1.5 block text-sm font-semibold text-slate-700">Mobile Number</label>
+                <input type="tel" id="mobile" placeholder="10-digit mobile number" maxlength="10"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100">
+                <span id="mobileError" class="mt-1 block text-xs text-red-500"></span>
+            </div>
+
+            <button type="submit"
+                class="w-full rounded-xl bg-slate-900 py-3 font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:-translate-y-0.5 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">
+                Create Account
+            </button>
+
+            <p id="success" class="text-center text-sm font-semibold text-emerald-600"></p>
+
+        </form>
+    </div>
+
+<script>
+const form = document.getElementById("registrationForm");
+const fields = {
+    name: ["Name is required", value => value.length > 0],
+    email: ["Enter a valid email", value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)],
+    password: ["Password must be at least 6 characters", value => value.length >= 6],
+    mobile: ["Enter a valid 10-digit mobile number", value => /^\d{10}$/.test(value)]
+};
+
+form.addEventListener("submit", event => {
+    event.preventDefault();
+    let valid = true;
+    document.getElementById("success").textContent = "";
+
+    Object.entries(fields).forEach(([id, [message, rule]]) => {
+        const value = document.getElementById(id).value.trim();
+        const error = document.getElementById(`${id}Error`);
+        error.textContent = rule(value) ? "" : (value ? message : `${id[0].toUpperCase() + id.slice(1)} is required`);
+        valid &&= rule(value);
+    });
+
+    if (valid) document.getElementById("success").textContent = "Registration successful!";
+});
+</script>
+
+</body>
+</html>
