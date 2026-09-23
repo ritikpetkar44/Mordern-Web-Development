@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-blue-400 to-purple-500 min-h-screen p-10">
+
+    <div class="bg-white p-6 rounded-xl shadow-lg w-96 mx-auto">
+
+        <h1 class="text-3xl font-bold text-center text-purple-600">
+            My To-Do List
+        </h1>
+        <p class="text-center">CM25126</p>
+
+        <p class="text-center text-gray-500 mt-1">
+            Manage your daily tasks
+        </p>
+
+        <!-- Input -->
+        <input
+            id="task"
+            type="text"
+            placeholder="Enter your task..."
+            class="border border-gray-300 p-3 w-full mt-5 rounded-lg"
+        >
+
+        <!-- Add Button -->
+        <button
+            onclick="addTask()"
+            class="bg-purple-600 hover:bg-purple-700 text-white w-full p-3 mt-3 rounded-lg"
+        >
+            + Add Task
+        </button>
+
+        <!-- Task List -->
+        <ul id="list" class="mt-5"></ul>
+
+    </div>
+
+    <script>
+
+        function addTask()
+        {
+            let input = document.getElementById("task");
+
+            // Check empty input
+            if(input.value == "")
+            {
+                alert("Please enter a task");
+                return;
+            }
+
+            // Create task
+            let li = document.createElement("li");
+
+            li.className =
+                "bg-gray-100 p-3 mt-2 rounded-lg flex justify-between items-center";
+
+            li.innerHTML =
+                "<span>" + input.value + "</span>" +
+                '<button onclick="this.parentElement.remove()" class="bg-red-500 text-white px-3 py-1 rounded">Delete</button>';
+
+            // Complete task
+            li.onclick = function()
+            {
+                this.classList.toggle("line-through");
+                this.classList.toggle("text-gray-400");
+            };
+
+            // Add task to list
+            document.getElementById("list").appendChild(li);
+
+            // Clear input
+            input.value = "";
+        }
+
+    </script>
+
+</body>
+</html>
