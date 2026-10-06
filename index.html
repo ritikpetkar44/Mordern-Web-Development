@@ -1,0 +1,697 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Yash Petkar | Web Design Practicals</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif
+}
+
+body{
+min-height:100vh;
+background:
+radial-gradient(circle at 80% 10%,rgba(255,70,0,.18),transparent 25%),
+radial-gradient(circle at 10% 90%,rgba(255,90,0,.16),transparent 25%),
+#050607;
+color:#fff;
+display:flex;
+overflow-x:hidden
+}
+
+body:before{
+content:"";
+position:fixed;
+width:600px;
+height:250px;
+right:-150px;
+top:-80px;
+background:linear-gradient(135deg,transparent,#ff4d00,transparent);
+filter:blur(70px);
+opacity:.25;
+transform:rotate(-20deg);
+pointer-events:none
+}
+
+.sidebar{
+width:260px;
+min-height:100vh;
+background:rgba(5,7,9,.88);
+border-right:1px solid rgba(255,90,0,.35);
+padding:45px 20px;
+position:sticky;
+top:0;
+display:flex;
+flex-direction:column;
+align-items:center
+}
+
+.logo{
+width:90px;
+height:90px;
+border:3px solid #ff6500;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:700;
+color:#ff7200;
+box-shadow:0 0 25px rgba(255,80,0,.5);
+margin-bottom:18px
+}
+
+.creator{
+text-align:center
+}
+
+.creator small{
+color:#aaa;
+font-size:14px
+}
+
+.creator h2{
+font-size:21px;
+margin-top:5px
+}
+
+.creator p{
+font-size:12px;
+color:#aaa;
+margin-top:5px
+}
+
+.line{
+width:130px;
+height:3px;
+background:linear-gradient(90deg,#ff9d00,#ff2600);
+margin:20px auto 30px;
+border-radius:10px
+}
+
+.nav{
+width:100%
+}
+
+.nav a{
+display:flex;
+align-items:center;
+gap:15px;
+padding:15px 18px;
+margin:10px 0;
+border-radius:12px;
+text-decoration:none;
+color:#ddd;
+transition:.3s;
+border:1px solid transparent
+}
+
+.nav a:hover,
+.nav a.active{
+color:#fff;
+background:linear-gradient(90deg,rgba(255,100,0,.3),rgba(255,30,0,.08));
+border-color:#ff6500;
+box-shadow:0 0 18px rgba(255,70,0,.2)
+}
+
+.nav-icon{
+font-size:22px
+}
+
+.quote{
+margin-top:auto;
+text-align:center;
+color:#ff7200;
+font-style:italic;
+font-size:18px;
+line-height:1.6
+}
+
+.quote span{
+display:block;
+font-size:28px;
+margin-top:10px
+}
+
+.main{
+flex:1;
+padding:35px;
+max-width:1500px;
+margin:auto
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+gap:20px
+}
+
+.header-left{
+display:flex;
+align-items:center;
+gap:20px
+}
+
+.code-logo{
+width:70px;
+height:70px;
+border:2px solid #ff6500;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+color:#ff7200;
+box-shadow:0 0 20px rgba(255,80,0,.3)
+}
+
+.title h1{
+font-size:34px;
+line-height:1.2
+}
+
+.title h1 span{
+color:#ff6500
+}
+
+.title p{
+color:#aaa;
+margin-top:6px
+}
+
+.badge{
+border:1px solid #ff6500;
+border-radius:30px;
+padding:12px 20px;
+color:#ff9a45;
+white-space:nowrap;
+background:rgba(255,70,0,.06)
+}
+
+.panel{
+border:1px solid rgba(255,90,0,.35);
+border-radius:16px;
+padding:20px;
+background:rgba(10,10,10,.72);
+box-shadow:0 0 40px rgba(255,60,0,.05)
+}
+
+.section-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px
+}
+
+.section-title{
+display:flex;
+align-items:center;
+gap:15px
+}
+
+.section-title .icon{
+font-size:28px;
+color:#ff7200
+}
+
+.section-title h2{
+font-size:28px
+}
+
+.section-title p{
+color:#999;
+font-size:13px
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:15px
+}
+
+.card{
+position:relative;
+min-height:180px;
+padding:20px;
+border:1px solid rgba(255,80,0,.5);
+border-radius:14px;
+background:
+linear-gradient(145deg,rgba(255,70,0,.13),rgba(10,10,10,.8));
+text-decoration:none;
+color:#fff;
+overflow:hidden;
+transition:.35s
+}
+
+.card:before{
+content:"";
+position:absolute;
+width:150px;
+height:150px;
+right:-80px;
+bottom:-80px;
+background:#ff4000;
+filter:blur(55px);
+opacity:.18
+}
+
+.card:hover{
+transform:translateY(-7px);
+border-color:#ff7200;
+box-shadow:0 12px 30px rgba(255,60,0,.25)
+}
+
+.number{
+position:absolute;
+right:16px;
+top:13px;
+font-size:15px;
+font-weight:600;
+color:#ff6b30
+}
+
+.card-icon{
+width:55px;
+height:55px;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:27px;
+background:linear-gradient(135deg,#ff8a00,#e62900);
+margin-bottom:18px;
+box-shadow:0 5px 18px rgba(255,70,0,.3)
+}
+
+.card h3{
+font-size:18px;
+margin-bottom:6px
+}
+
+.card p{
+font-size:12px;
+color:#aaa;
+line-height:1.6
+}
+
+.arrow{
+position:absolute;
+right:15px;
+bottom:15px;
+width:38px;
+height:38px;
+border:1px solid #ff6500;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#ff8a00;
+font-size:20px;
+transition:.3s
+}
+
+.card:hover .arrow{
+background:#ff6500;
+color:#fff;
+transform:translateX(3px)
+}
+
+.tae-panel{
+margin-top:25px
+}
+
+.tae{
+display:flex;
+align-items:center;
+gap:20px;
+padding:20px;
+border:1px solid #ff6500;
+border-radius:14px;
+background:
+linear-gradient(100deg,rgba(255,90,0,.18),rgba(255,30,0,.04));
+text-decoration:none;
+color:#fff;
+transition:.3s
+}
+
+.tae:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(255,60,0,.25)
+}
+
+.tae-icon{
+width:65px;
+height:65px;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:34px;
+background:linear-gradient(135deg,#ff9d00,#e52b00)
+}
+
+.tae h3{
+font-size:20px
+}
+
+.tae p{
+color:#aaa;
+font-size:13px;
+margin-top:4px
+}
+
+.tae-arrow{
+margin-left:auto;
+width:45px;
+height:45px;
+border:1px solid #ff6500;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px
+}
+
+.footer{
+text-align:center;
+padding:25px 0 5px;
+color:#777;
+font-size:12px
+}
+
+.footer span{
+color:#ff6500
+}
+
+@media(max-width:1100px){
+.cards{
+grid-template-columns:repeat(3,1fr)
+}
+}
+
+@media(max-width:800px){
+body{
+display:block
+}
+
+.sidebar{
+width:100%;
+min-height:auto;
+position:relative;
+padding:25px 15px
+}
+
+.quote{
+display:none
+}
+
+.nav{
+display:flex;
+justify-content:center;
+gap:8px
+}
+
+.nav a{
+margin:5px;
+padding:10px 14px
+}
+
+.main{
+padding:20px 15px
+}
+
+.header{
+flex-direction:column;
+align-items:flex-start
+}
+
+.badge{
+display:none
+}
+
+.title h1{
+font-size:27px
+}
+
+.cards{
+grid-template-columns:repeat(2,1fr)
+}
+}
+
+@media(max-width:500px){
+.cards{
+grid-template-columns:1fr
+}
+
+.header-left{
+align-items:flex-start
+}
+
+.code-logo{
+width:55px;
+height:55px;
+font-size:25px
+}
+
+.title h1{
+font-size:23px
+}
+
+.nav a{
+font-size:12px
+}
+
+.nav-icon{
+font-size:18px
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="logo">YP</div>
+
+<div class="creator">
+<small>Created by</small>
+<h2>YASH PETKAR</h2>
+<p>B.Tech CSE (AIML) | 3rd Sem</p>
+</div>
+
+<div class="line"></div>
+
+<nav class="nav">
+
+<a href="#" class="active">
+<span class="nav-icon">⌂</span>
+<span>Home</span>
+</a>
+
+<a href="https://github.com/ritikpetkar44" target="_blank">
+<span class="nav-icon">◉</span>
+<span>GitHub</span>
+</a>
+
+<a href="https://www.linkedin.com/in/yash-petkar-725b76386/" target="_blank">
+<span class="nav-icon">in</span>
+<span>LinkedIn</span>
+</a>
+
+</nav>
+
+<div class="quote">
+“Build<br>Learn<br>Grow”
+<span>🔥</span>
+</div>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+<header class="header">
+
+<div class="header-left">
+
+<div class="code-logo">&lt;/&gt;</div>
+
+<div class="title">
+<h1>My Web Design <span>Practicals</span></h1>
+<p>Explore • Learn • Build • Create</p>
+</div>
+
+</div>
+
+<div class="badge">
+🔥 Better Code → Better Tomorrow
+</div>
+
+</header>
+
+
+<!-- PRACTICALS -->
+
+<section class="panel">
+
+<div class="section-head">
+
+<div class="section-title">
+<div class="icon">▰</div>
+<div>
+<h2>Practicals</h2>
+<p>Click on any practical to view its live output</p>
+</div>
+</div>
+
+<div class="badge">▰ 10 Practicals</div>
+
+</div>
+
+
+<div class="cards">
+
+<a class="card" href="Practical_01.html">
+<span class="number">01</span>
+<div class="card-icon">📄</div>
+<h3>Practical 1</h3>
+<p>Web Development<br>Practical 1</p>
+<div class="arrow">→</div>
+</a>
+
+<a class="card" href="Practical_02.html">
+<span class="number">02</span>
+<div class="card-icon">💻</div>
+<h3>Practical 2</h3>
+<p>Web Development<br>Practical 2</p>
+<div class="arrow">→</div>
+</a>
+
+<a class="card" href="Practical_03.html">
+<span class="number">03</span>
+<div class="card-icon">🖼️</div>
+<h3>Practical 3</h3>
+<p>Web Development<br>Practical 3</p>
+<div class="arrow">→</div>
+</a>
+
+<a class="card" href="Practical_04.html">
+<span class="number">04</span>
+<div class="card-icon">▦</div>
+<h3>Practical 4</h3>
+<p>Web Development<br>Practical 4</p>
+<div class="arrow">→</div>
+</a>
+
+<a class="card" href="Practical_05.html">
+<span class="number">05</span>
+<div class="card-icon">👤</div>
+<h3>Practical 5</h3>
+<p>Web Development<br>Practical 5</p>
+<div class="arrow">→</div>
+</a>
+
+<a class="card" href="Practical_06.html">
+<span class="number">06</span>
+<div class="card-icon">📝</div>
+<h3>Practical 6</h3>
+<p>Web Development<br>Practical 6</p>
+<div class="arrow">→</div>
+</a>
+
+<a class="card" href="Practical_07.html">
+<span class="number">07</span>
+<div class="card-icon">🎨</div>
+<h3>Practical 7</h3>
+<p>Web Development<br>Practical 7</p>
+<div class="arrow">→</div>
+</a>
+
+<a class="card" href="Practical_08.html">
+<span class="number">08</span>
+<div class="card-icon">🖼️</div>
+<h3>Practical 8</h3>
+<p>Web Development<br>Practical 8</p>
+<div class="arrow">→</div>
+</a>
+
+<a class="card" href="Practical_09.html">
+<span class="number">09</span>
+<div class="card-icon">📱</div>
+<h3>Practical 9</h3>
+<p>Web Development<br>Practical 9</p>
+<div class="arrow">→</div>
+</a>
+
+<a class="card" href="Practical_10.html">
+<span class="number">10</span>
+<div class="card-icon">☁️</div>
+<h3>Practical 10</h3>
+<p>Web Development<br>Practical 10</p>
+<div class="arrow">→</div>
+</a>
+
+</div>
+
+</section>
+
+
+<!-- TAE -->
+
+<section class="panel tae-panel">
+
+<div class="section-head">
+
+<div class="section-title">
+<div class="icon">★</div>
+<div>
+<h2>TAE</h2>
+<p>Technical Assessment / Experiential Activity</p>
+</div>
+</div>
+
+<div class="badge">★ 1 Module</div>
+
+</div>
+
+<a class="tae" href="TAE/index.html">
+
+<div class="tae-icon">☆</div>
+
+<div>
+<h3>TAE</h3>
+<p>Technical Assessment / Experiential Activity</p>
+</div>
+
+<div class="tae-arrow">→</div>
+
+</a>
+
+</section>
+
+
+<footer class="footer">
+Made with <span>♥</span> by Yash Petkar
+</footer>
+
+</main>
+
+</body>
+</html>
